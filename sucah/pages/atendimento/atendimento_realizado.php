@@ -43,8 +43,8 @@
     }
     
 			//Conexão com o banco de dados
-    require 'config.php';
-    require 'funcoes.php';
+    require '../../config.php';
+    require '../../funcoes.php';
     $link = DBConnect();
 
     $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
@@ -176,7 +176,7 @@
                                                 <h4 class="card-title"></h4>
                                                 <div class="table-responsive">
                                                     <table class="table">
-                                                       <thead>
+                                                     <thead>
                                                         <tr>
                                                             <th>Nome Aluno</th>
                                                             <th>Itinerante</th>
@@ -190,41 +190,41 @@
                                                     $count_professor = 0;
                                                     while ($linha = mysqli_fetch_array($select)) {
                                                         if($linha['codEscola'] == $cod_escola){
-                                                           $cre = $linha['cre'];
-                                                       }
-                                                   }
+                                                         $cre = $linha['cre'];
+                                                     }
+                                                 }
 
 
-                                                   $select = mysqli_query($link, "SELECT * FROM tb_atendimento") or die(mysqli_error($link));
-                                                   $count_professor = 0;
-                                                   while ($linha = mysqli_fetch_array($select)) {
+                                                 $select = mysqli_query($link, "SELECT * FROM tb_atendimento") or die(mysqli_error($link));
+                                                 $count_professor = 0;
+                                                 while ($linha = mysqli_fetch_array($select)) {
                                                     if($linha['cre'] == $cre){
-                                                       echo '<tbody><tr><td>'. $linha['nomeAluno'] .'</td>';
-                                                       echo '<td>'. $linha['itinerante'] .'</td>';
-                                                       echo '<td>'. $linha['dataAtendimento'] .'</td>';
-                                                       echo '<td>'. $linha['matriculaAluno'] .'</td>';
-                                                       echo '<td><a href="?"><button class="btn btn-warning" style="position:right; width:120px; height:2rem;"><b>Atualizar <i class="mdi mdi-ungroup"></i></b></button></a></td></tr>';
-                                                   }
-                                               }
-                                               ?>
-                                           </tbody>
-                                       </table>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- ============================================================== -->
-                   <!-- End PAge Content -->
-                   <!-- ============================================================== -->
-               </div>
-               <!-- ============================================================== -->
-               <!-- End Container fluid  -->
-               <!-- ============================================================== -->
-               <!-- ============================================================== -->
-               <!-- footer -->
-               <!-- ============================================================== -->
-               <footer class="footer">
+                                                     echo '<tbody><tr><td>'. $linha['nomeAluno'] .'</td>';
+                                                     echo '<td>'. $linha['itinerante'] .'</td>';
+                                                     echo '<td>'. $linha['dataAtendimento'] .'</td>';
+                                                     echo '<td>'. $linha['matriculaAluno'] .'</td>';
+                                                     echo '<td><a href="?"><button class="btn btn-warning" style="position:right; width:120px; height:2rem;"><b>Atualizar <i class="mdi mdi-ungroup"></i></b></button></a></td></tr>';
+                                                 }
+                                             }
+                                             ?>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- ============================================================== -->
+                 <!-- End PAge Content -->
+                 <!-- ============================================================== -->
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Container fluid  -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- footer -->
+             <!-- ============================================================== -->
+             <footer class="footer">
                 © 2017 Material Pro Admin by wrappixel.com
             </footer>
             <!-- ============================================================== -->

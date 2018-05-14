@@ -43,8 +43,8 @@
 	}
 	
 			//Conexão com o banco de dados
-	require 'config.php';
-	require 'funcoes.php';
+	require '../../config.php';
+	require '../../funcoes.php';
 	$link = DBConnect();
 
 	$select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));

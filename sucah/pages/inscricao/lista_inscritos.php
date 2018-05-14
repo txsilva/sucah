@@ -154,7 +154,7 @@
                                 <!-- Bread crumb and right sidebar toggle -->
                                 <!-- ============================================================== -->
                                 <div class="row page-titles">
-                                   <div class="col-md-5 col-8 align-self-center">
+                                 <div class="col-md-5 col-8 align-self-center">
                                     <h3 class="text-themecolor m-b-0 m-t-0">Lista de Estudante</h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
@@ -201,51 +201,51 @@
                                                                     $count_professor = 0;
                                                                     while ($linha = mysqli_fetch_array($select)) {
                                                                         if($linha['codEscola'] == $cod_escola){
-                                                                           $cre = $linha['cre'];
-                                                                       }
-                                                                   }
+                                                                         $cre = $linha['cre'];
+                                                                     }
+                                                                 }
 
-                                                                   $i = 0;
-                                                                   $select = mysqli_query($link, "SELECT * FROM tb_inscricao") or die(mysqli_error($link));
-                                                                   $count_professor = 0;
-                                                                   while ($linha = mysqli_fetch_array($select)) {
+                                                                 $i = 0;
+                                                                 $select = mysqli_query($link, "SELECT * FROM tb_inscricao") or die(mysqli_error($link));
+                                                                 $count_professor = 0;
+                                                                 while ($linha = mysqli_fetch_array($select)) {
                                                                     if($linha['cre'] == $cre){
-                                                                       $i = $i+1;
-                                                                       $codinscricao_privilegio[] = $linha['codinscricao'];
-                                                                       $codinscricao = $linha['codinscricao'];
-                                                                       echo '<tr><td>' .$linha['codAluno']. '</td>';
-                                                                       echo '<td>' .$linha['nomeAluno']. '</td>';
-                                                                       echo '<td>' .$linha['escolaOrigem']. '</td>';
-                                                                       echo '<td>' .$linha['serie']. '</td>';
-                                                                       echo '<td><a href="atualizainscricao.php?codinscricao='.$codinscricao.'"><button class="btn btn-warning" style="position:right; width:100%; height:2rem;"><b>Atualizar <i class="mdi mdi-ungroup"></i></b></button></a></td></tr>';
-                                                                       $count_professor ++;
-                                                                   }
-                                                               }
-                                                               $_SESSION['codinscricao_priviegio'] = $codinscricao_privilegio;
-                                                               $_SESSION['contador'] = $i;
-                                                               ?>
-                                                           </tbody>
-                                                       </table>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- ============================================================== -->
-                   <!-- End PAge Content -->
-                   <!-- ============================================================== -->
-               </div>
-               <!-- ============================================================== -->
-               <!-- End Container fluid  -->
-               <!-- ============================================================== -->
-               <!-- ============================================================== -->
-               <!-- footer -->
-               <!-- ============================================================== -->
-               <footer class="footer">
+                                                                     $i = $i+1;
+                                                                     $codinscricao_privilegio[] = $linha['codinscricao'];
+                                                                     $codinscricao = $linha['codinscricao'];
+                                                                     echo '<tr><td>' .$linha['codAluno']. '</td>';
+                                                                     echo '<td>' .$linha['nomeAluno']. '</td>';
+                                                                     echo '<td>' .$linha['escolaOrigem']. '</td>';
+                                                                     echo '<td>' .$linha['serie']. '</td>';
+                                                                     echo '<td><a href="atualizainscricao.php?codinscricao='.$codinscricao.'"><button class="btn btn-warning" style="position:right; width:100%; height:2rem;"><b>Atualizar <i class="mdi mdi-ungroup"></i></b></button></a></td></tr>';
+                                                                     $count_professor ++;
+                                                                 }
+                                                             }
+                                                             $_SESSION['codinscricao_priviegio'] = $codinscricao_privilegio;
+                                                             $_SESSION['contador'] = $i;
+                                                             ?>
+                                                         </tbody>
+                                                     </table>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- ============================================================== -->
+                 <!-- End PAge Content -->
+                 <!-- ============================================================== -->
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Container fluid  -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- footer -->
+             <!-- ============================================================== -->
+             <footer class="footer">
                 © 2017 Material Pro Admin by wrappixel.com
             </footer>
             <!-- ============================================================== -->

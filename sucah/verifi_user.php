@@ -50,33 +50,8 @@
     $link = DBConnect();
     $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
     while ($linha = mysqli_fetch_array($select)){
-       if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'sala_recurso')){
-          $acesso = 1;
-          $_SESSION['privilegio'] = $linha['privilegio'];
-          echo '<div class="card">
-          <div class="card-block bg-primary">
-            <h1 class="text-white card-title">Central do Usuário</h1>
-            <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
-        </div>
-        <div class="card-block">
-            <div class="message-box contact-box">
-                <div class="message-widget contact-widget">
-                    <!-- Message -->
-                    <h1  class="mdi mdi-numeric-1-box-multiple-outline">Professor da Sala de Recurso</h1>
-                    <h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
-                        Você poderá acessar a página do seu centro de atendimento, realizar atendimentos e ver relatórios gerados sobre esse centro.
-
-                        O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
-                        <center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
-                        <meta http-equiv="refresh" content="10;url=index_recurso.php">
-                    </div>
-                </div>
-            </div>
-        </div>';
-    }
-
-    if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'itinerante')){
-      $acesso =2;
+     if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'sala_recurso')){
+      $acesso = 1;
       $_SESSION['privilegio'] = $linha['privilegio'];
       echo '<div class="card">
       <div class="card-block bg-primary">
@@ -87,17 +62,42 @@
         <div class="message-box contact-box">
             <div class="message-widget contact-widget">
                 <!-- Message -->
-                <h1 class="mdi mdi-numeric-2-box-multiple-outline">Professor Itinerante</h1>
+                <h1  class="mdi mdi-numeric-1-box-multiple-outline">Professor da Sala de Recurso</h1>
                 <h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
-                    Você poderá acessar a página do seu centro de atendimento, inscrever alunos, realizar atendimentos e gerar relatórios sobre esse centro.
+                    Você poderá acessar a página do seu centro de atendimento, realizar atendimentos e ver relatórios gerados sobre esse centro.
 
                     O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
                     <center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
-                    <meta http-equiv="refresh" content="10;url=index_itinerante.php">
+                    <meta http-equiv="refresh" content="10;url=index_recurso.php">
                 </div>
             </div>
         </div>
     </div>';
+}
+
+if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'itinerante')){
+  $acesso =2;
+  $_SESSION['privilegio'] = $linha['privilegio'];
+  echo '<div class="card">
+  <div class="card-block bg-primary">
+    <h1 class="text-white card-title">Central do Usuário</h1>
+    <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
+</div>
+<div class="card-block">
+    <div class="message-box contact-box">
+        <div class="message-widget contact-widget">
+            <!-- Message -->
+            <h1 class="mdi mdi-numeric-2-box-multiple-outline">Professor Itinerante</h1>
+            <h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
+                Você poderá acessar a página do seu centro de atendimento, inscrever alunos, realizar atendimentos e gerar relatórios sobre esse centro.
+
+                O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
+                <center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
+                <meta http-equiv="refresh" content="10;url=index_itinerante.php">
+            </div>
+        </div>
+    </div>
+</div>';
 }
 
 if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'regional')){

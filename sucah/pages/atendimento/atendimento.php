@@ -43,8 +43,8 @@
     }
     
 			//Conexão com o banco de dados
-    require 'config.php';
-    require 'funcoes.php';
+    require '../../config.php';
+    require '../../funcoes.php';
     $link = DBConnect();
 
     $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
@@ -181,168 +181,168 @@
                                                 <div class="message-widget contact-widget">
                                                     <!-- Message -->
                                                     <form action="verifica_atendimento.php" method="POST">
-                                                       <h3>CRE:
-                                                           <input type="text" style="width:100%;" name="cre">
-                                                           Itinerante: <input type="text" style="width:100%;" name="itinerante" placeholder="Nome da(o) itinerante"></h3>
-                                                           <h3>Data: 
-                                                               <input type="text" style="width:100%;" name="data" placeholder="dd / mm / yyyy"></h3>
-                                                               <h3>Matrícula: 
-                                                                   <input type="text" style=width:100%;" name="matricula"><br><br></h3>
-                                                                   <hr>
-                                                                   <h4>Nome completo do aluno: 
-                                                                       <br><input type="text" style="width:100%;" name="nome_aluno" placeholder="Nome do aluno"><br></h4>
-                                                                       <h4>Data de Nascimento: 
-                                                                           <br><input type="text" style="width:100%;" name="dn" placeholder="dd / mm / yyyy"><br></h4>
-                                                                           <h4>Escola de origem: 
-                                                                               <br><input type="text" style="width:100%;" name="escola_origem"><br></h4>
-                                                                               <h4>Ano: 
-                                                                                   <br><select style="width:100%;">
-                                                                                   <option name="ano">Escolher série</option>
-                                                                                   <option name="ano">1° Ano</option>
-                                                                                   <option name="ano">2° Ano</option>
-                                                                                   <option name="ano">3° Ano</option>
-                                                                                   <option name="ano">4° Ano</option>
-                                                                                   <option name="ano">5° Ano</option>
-                                                                                   <option name="ano">6° Ano</option>
-                                                                                   <option name="ano">7° Ano</option>
-                                                                                   <option name="ano">8° Ano</option>
-                                                                                   <option name="ano">9° Ano</option>
-                                                                               </select><br><br></h4>
-                                                                               <hr>
-                                                                               <h4>Professor 1: 
-                                                                                   <br><select style="width:100%;">
-                                                                                   <option name="serie">Escolher professor</option>
-                                                                                   <?php
-                                                                                   $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
-                                                                                   while ($linha = mysqli_fetch_array($select)) {
-                                                                                       echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
-                                                                                   }
-                                                                                   ?>
-                                                                               </select><br><br></h4>
-                                                                               <h4>Professor 2: 
-                                                                                   <br><select style="width:100%;">
-                                                                                   <option name="serie">Escolher professor</option>
-                                                                                   <?php
-                                                                                   $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
-                                                                                   while ($linha = mysqli_fetch_array($select)) {
-                                                                                       echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
-                                                                                   }
-                                                                                   ?>
-                                                                               </select><br><br></h4>
-                                                                               <h4>Professor 3: 
-                                                                                   <br><select style="width:100%;">
-                                                                                   <option name="serie">Escolher professor</option>
-                                                                                   <?php
-                                                                                   $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
-                                                                                   while ($linha = mysqli_fetch_array($select)) {
-                                                                                       echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
-                                                                                   }
-                                                                                   ?>
-                                                                               </select><br><br></h4>
-                                                                               <h4>Professor 4: 
-                                                                                   <br><select style="width:100%;">
-                                                                                   <option name="serie">Escolher professor</option>
-                                                                                   <?php
-                                                                                   $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
-                                                                                   while ($linha = mysqli_fetch_array($select)) {
-                                                                                       echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
-                                                                                   }
-                                                                                   ?>
-                                                                               </select><br><br></h4>
-                                                                               <h4>Situação: 
-                                                                                   <br><input type="text" style="width:100%;" name="situacao" style="width:100%"><br></h4>
-                                                                                   <hr>
-                                                                                   <h4>Dia da semana:
-                                                                                       <br><select style="width:100%;">
-                                                                                       <option name="serie">Escolher dia</option>
-                                                                                       <option name="serie">Segunda-feira</option>
-                                                                                       <option name="serie">Terça-feira</option>
-                                                                                       <option name="serie">Quarta-feira</option>
-                                                                                       <option name="serie">Quinta-feira</option>
-                                                                                       <option name="serie">Sexta-feira</option>
-                                                                                   </select><br><br></h4>
-                                                                                   <h4>Turno:</h4>	
-                                                                                   <div class="radio">
-                                                                                      <label><input type="radio" name="turno" value="Turno" checked> Matutino</label>
-                                                                                  </div>
-                                                                                  <div class="radio">
-                                                                                      <label><input type="radio" name="turno" value="Turno"> Vespertino</label>
-                                                                                  </div>
-                                                                                  <div class="radio">
-                                                                                      <label><input type="radio" name="turno" value="Turno"> Noturno</label>
-                                                                                  </div>
-                                                                                  <br>
-                                                                                  <h4>Escola de origem: <br><select style="width:100%;" required>
-                                                                                    <option name="serie">Escolher escola</option>
-                                                                                    <?php
-                                                                                    $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
-                                                                                    while ($linha = mysqli_fetch_array($select)) {
-                                                                                        echo "<option name=\"serie\">" .$linha['nomeEscola']. "</option>";
-                                                                                    }
-                                                                                    ?>
-                                                                                </select><br><br></h4>
-                                                                                <h4>Telefone(s) para contato: 
-                                                                                   <br><input type="text" style="width:100%;" name="telefone_contato" style="width:100%"><br>
-                                                                                   <h4>Responsável: 
-                                                                                       <br><input type="text" style="width:100%;" name="responsavel" style="width:100%"><br><br>
-                                                                                       <input type="submit" value="Inscrever"><input type="reset" value="Limpar">
-                                                                                   </form>                      </div>
-                                                                               </div>
-                                                                           </div>
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <!-- ============================================================== -->
-                                                           <!-- End PAge Content -->
-                                                           <!-- ============================================================== -->
-                                                       </div>
-                                                       <!-- ============================================================== -->
-                                                       <!-- End Container fluid  -->
-                                                       <!-- ============================================================== -->
-                                                       <!-- ============================================================== -->
-                                                       <!-- footer -->
-                                                       <!-- ============================================================== -->
-                                                       <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
-                                                       <!-- ============================================================== -->
-                                                       <!-- End footer -->
-                                                       <!-- ============================================================== -->
-                                                   </div>
-                                                   <!-- ============================================================== -->
-                                                   <!-- End Page wrapper  -->
-                                                   <!-- ============================================================== -->
-                                               </div>
-                                               <!-- ============================================================== -->
-                                               <!-- End Wrapper -->
-                                               <!-- ============================================================== -->
-                                               <!-- ============================================================== -->
-                                               <!-- All Jquery -->
-                                               <!-- ============================================================== -->
-                                               <script src="/sucah/assets/plugins/jquery/jquery.min.js"></script>
-                                               <!-- Bootstrap tether Core JavaScript -->
-                                               <script src="/sucah/assets/plugins/bootstrap/js/tether.min.js"></script>
-                                               <script src="/sucah/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-                                               <!-- slimscrollbar scrollbar JavaScript -->
-                                               <script src="/sucah/js/jquery.slimscroll.js"></script>
-                                               <!--Wave Effects -->
-                                               <script src="/sucah/js/waves.js"></script>
-                                               <!--Menu sidebar -->
-                                               <script src="/sucah/js/sidebarmenu.js"></script>
-                                               <!--stickey kit -->
-                                               <script src="/sucah/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-                                               <!--Custom JavaScript -->
-                                               <script src="/sucah/js/custom.min.js"></script>
-                                               <!-- ============================================================== -->
-                                               <!-- This page plugins -->
-                                               <!-- ============================================================== -->
-                                               <!-- chartist chart -->
-                                               <script src="/sucah/assets/plugins/chartist-js/dist/chartist.min.js"></script>
-                                               <script src="/sucah/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-                                               <!--c3 JavaScript -->
-                                               <script src="/sucah/assets/plugins/d3/d3.min.js"></script>
-                                               <script src="/sucah/assets/plugins/c3-master/c3.min.js"></script>
-                                               <!-- Chart JS -->
-                                               <script src="/sucah/js/dashboard1.js"></script>
-                                           </body>
+                                                     <h3>CRE:
+                                                         <input type="text" style="width:100%;" name="cre">
+                                                         Itinerante: <input type="text" style="width:100%;" name="itinerante" placeholder="Nome da(o) itinerante"></h3>
+                                                         <h3>Data: 
+                                                             <input type="text" style="width:100%;" name="data" placeholder="dd / mm / yyyy"></h3>
+                                                             <h3>Matrícula: 
+                                                                 <input type="text" style=width:100%;" name="matricula"><br><br></h3>
+                                                                 <hr>
+                                                                 <h4>Nome completo do aluno: 
+                                                                     <br><input type="text" style="width:100%;" name="nome_aluno" placeholder="Nome do aluno"><br></h4>
+                                                                     <h4>Data de Nascimento: 
+                                                                         <br><input type="text" style="width:100%;" name="dn" placeholder="dd / mm / yyyy"><br></h4>
+                                                                         <h4>Escola de origem: 
+                                                                             <br><input type="text" style="width:100%;" name="escola_origem"><br></h4>
+                                                                             <h4>Ano: 
+                                                                                 <br><select style="width:100%;">
+                                                                                 <option name="ano">Escolher série</option>
+                                                                                 <option name="ano">1° Ano</option>
+                                                                                 <option name="ano">2° Ano</option>
+                                                                                 <option name="ano">3° Ano</option>
+                                                                                 <option name="ano">4° Ano</option>
+                                                                                 <option name="ano">5° Ano</option>
+                                                                                 <option name="ano">6° Ano</option>
+                                                                                 <option name="ano">7° Ano</option>
+                                                                                 <option name="ano">8° Ano</option>
+                                                                                 <option name="ano">9° Ano</option>
+                                                                             </select><br><br></h4>
+                                                                             <hr>
+                                                                             <h4>Professor 1: 
+                                                                                 <br><select style="width:100%;">
+                                                                                 <option name="serie">Escolher professor</option>
+                                                                                 <?php
+                                                                                 $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
+                                                                                 while ($linha = mysqli_fetch_array($select)) {
+                                                                                     echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
+                                                                                 }
+                                                                                 ?>
+                                                                             </select><br><br></h4>
+                                                                             <h4>Professor 2: 
+                                                                                 <br><select style="width:100%;">
+                                                                                 <option name="serie">Escolher professor</option>
+                                                                                 <?php
+                                                                                 $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
+                                                                                 while ($linha = mysqli_fetch_array($select)) {
+                                                                                     echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
+                                                                                 }
+                                                                                 ?>
+                                                                             </select><br><br></h4>
+                                                                             <h4>Professor 3: 
+                                                                                 <br><select style="width:100%;">
+                                                                                 <option name="serie">Escolher professor</option>
+                                                                                 <?php
+                                                                                 $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
+                                                                                 while ($linha = mysqli_fetch_array($select)) {
+                                                                                     echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
+                                                                                 }
+                                                                                 ?>
+                                                                             </select><br><br></h4>
+                                                                             <h4>Professor 4: 
+                                                                                 <br><select style="width:100%;">
+                                                                                 <option name="serie">Escolher professor</option>
+                                                                                 <?php
+                                                                                 $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
+                                                                                 while ($linha = mysqli_fetch_array($select)) {
+                                                                                     echo "<option name=\"serie\">" .$linha['nomeProfessor']. "</option>";
+                                                                                 }
+                                                                                 ?>
+                                                                             </select><br><br></h4>
+                                                                             <h4>Situação: 
+                                                                                 <br><input type="text" style="width:100%;" name="situacao" style="width:100%"><br></h4>
+                                                                                 <hr>
+                                                                                 <h4>Dia da semana:
+                                                                                     <br><select style="width:100%;">
+                                                                                     <option name="serie">Escolher dia</option>
+                                                                                     <option name="serie">Segunda-feira</option>
+                                                                                     <option name="serie">Terça-feira</option>
+                                                                                     <option name="serie">Quarta-feira</option>
+                                                                                     <option name="serie">Quinta-feira</option>
+                                                                                     <option name="serie">Sexta-feira</option>
+                                                                                 </select><br><br></h4>
+                                                                                 <h4>Turno:</h4>	
+                                                                                 <div class="radio">
+                                                                                  <label><input type="radio" name="turno" value="Turno" checked> Matutino</label>
+                                                                              </div>
+                                                                              <div class="radio">
+                                                                                  <label><input type="radio" name="turno" value="Turno"> Vespertino</label>
+                                                                              </div>
+                                                                              <div class="radio">
+                                                                                  <label><input type="radio" name="turno" value="Turno"> Noturno</label>
+                                                                              </div>
+                                                                              <br>
+                                                                              <h4>Escola de origem: <br><select style="width:100%;" required>
+                                                                                <option name="serie">Escolher escola</option>
+                                                                                <?php
+                                                                                $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
+                                                                                while ($linha = mysqli_fetch_array($select)) {
+                                                                                    echo "<option name=\"serie\">" .$linha['nomeEscola']. "</option>";
+                                                                                }
+                                                                                ?>
+                                                                            </select><br><br></h4>
+                                                                            <h4>Telefone(s) para contato: 
+                                                                             <br><input type="text" style="width:100%;" name="telefone_contato" style="width:100%"><br>
+                                                                             <h4>Responsável: 
+                                                                                 <br><input type="text" style="width:100%;" name="responsavel" style="width:100%"><br><br>
+                                                                                 <input type="submit" value="Inscrever"><input type="reset" value="Limpar">
+                                                                             </form>                      </div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                     <!-- ============================================================== -->
+                                                     <!-- End PAge Content -->
+                                                     <!-- ============================================================== -->
+                                                 </div>
+                                                 <!-- ============================================================== -->
+                                                 <!-- End Container fluid  -->
+                                                 <!-- ============================================================== -->
+                                                 <!-- ============================================================== -->
+                                                 <!-- footer -->
+                                                 <!-- ============================================================== -->
+                                                 <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
+                                                 <!-- ============================================================== -->
+                                                 <!-- End footer -->
+                                                 <!-- ============================================================== -->
+                                             </div>
+                                             <!-- ============================================================== -->
+                                             <!-- End Page wrapper  -->
+                                             <!-- ============================================================== -->
+                                         </div>
+                                         <!-- ============================================================== -->
+                                         <!-- End Wrapper -->
+                                         <!-- ============================================================== -->
+                                         <!-- ============================================================== -->
+                                         <!-- All Jquery -->
+                                         <!-- ============================================================== -->
+                                         <script src="/sucah/assets/plugins/jquery/jquery.min.js"></script>
+                                         <!-- Bootstrap tether Core JavaScript -->
+                                         <script src="/sucah/assets/plugins/bootstrap/js/tether.min.js"></script>
+                                         <script src="/sucah/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+                                         <!-- slimscrollbar scrollbar JavaScript -->
+                                         <script src="/sucah/js/jquery.slimscroll.js"></script>
+                                         <!--Wave Effects -->
+                                         <script src="/sucah/js/waves.js"></script>
+                                         <!--Menu sidebar -->
+                                         <script src="/sucah/js/sidebarmenu.js"></script>
+                                         <!--stickey kit -->
+                                         <script src="/sucah/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+                                         <!--Custom JavaScript -->
+                                         <script src="/sucah/js/custom.min.js"></script>
+                                         <!-- ============================================================== -->
+                                         <!-- This page plugins -->
+                                         <!-- ============================================================== -->
+                                         <!-- chartist chart -->
+                                         <script src="/sucah/assets/plugins/chartist-js/dist/chartist.min.js"></script>
+                                         <script src="/sucah/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+                                         <!--c3 JavaScript -->
+                                         <script src="/sucah/assets/plugins/d3/d3.min.js"></script>
+                                         <script src="/sucah/assets/plugins/c3-master/c3.min.js"></script>
+                                         <!-- Chart JS -->
+                                         <script src="/sucah/js/dashboard1.js"></script>
+                                     </body>
 
-                                           </html>
+                                     </html>

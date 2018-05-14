@@ -183,105 +183,105 @@
                                 $cadastrar = 0;
                                 $select = mysqli_query($link, "SELECT codAluno, nomeAluno, foto FROM tb_inscricao") or die(mysqli_error($link));
                                 while ($linha = mysqli_fetch_array($select)){
-                                   if($linha['codAluno'] == $codAluno){
-                                      $cadastrar = 1;
-                                      $codAluno = $linha['codAluno']. " ,";
-                                      $nomeAluno = $linha['nomeAluno']. " ,";
-                                      $fotografia = $linha['foto'];
-                                  }
+                                 if($linha['codAluno'] == $codAluno){
+                                  $cadastrar = 1;
+                                  $codAluno = $linha['codAluno']. " ,";
+                                  $nomeAluno = $linha['nomeAluno']. " ,";
+                                  $fotografia = $linha['foto'];
                               }
+                          }
 
-                              $nomeAluno = $_POST['nomeAluno'];
-                              $foto_tmp = $_FILES['foto']['tmp_name'];
-                              $foto_real = $_FILES['foto']['name'];
-                              $data = date('H:i:s');
-                              copy($foto_tmp,"fotos/$foto_real");
-                              $data_nascimento = $_POST['data_nascimento'];
-                              $idade = $_POST['idade'];
-                              $anos = $_POST['anos'];
-                              $escola_origem = $_POST['escola_origem'];
-                              $telefone_escola = $_POST['telefone_escola'];
-                              $cre = $_POST['cre'];
-                              $serie = $_POST['serie'];
-                              $turno = $_POST['turno'];
-                              $endereco_residencial = $_POST['endereco_residencial'];
-                              $telefone = $_POST['telefone'];
-                              $nome_pai = $_POST['nome_pai'];
-                              $profissao_pai = $_POST['profissao_pai'];
-                              $telefone_trab_pai = $_POST['telefone_trab_pai'];
-                              $celular_pai = $_POST['celular_pai'];
-                              $email_pai = $_POST['email_pai'];
-                              $nome_mae = $_POST['nome_mae'];
-                              $profissao_mae = $_POST['profissao_mae'];
-                              $telefone_trab_mae = $_POST['telefone_trab_mae'];
-                              $celular_mae = $_POST['celular_mae'];
-                              $email_mae = $_POST['email_mae'];
-                              $inicio_periodo_obs = $_POST['inicio_periodo_obs'];
-                              $devolutiva = $_POST['devolutiva'];
-                              $efetivado = $_POST['efetivado'];
-                              $desligado = $_POST['desligado'];
-                              $motivo = $_POST['motivo'];
+                          $nomeAluno = $_POST['nomeAluno'];
+                          $foto_tmp = $_FILES['foto']['tmp_name'];
+                          $foto_real = $_FILES['foto']['name'];
+                          $data = date('H:i:s');
+                          copy($foto_tmp,"fotos/$foto_real");
+                          $data_nascimento = $_POST['data_nascimento'];
+                          $idade = $_POST['idade'];
+                          $anos = $_POST['anos'];
+                          $escola_origem = $_POST['escola_origem'];
+                          $telefone_escola = $_POST['telefone_escola'];
+                          $cre = $_POST['cre'];
+                          $serie = $_POST['serie'];
+                          $turno = $_POST['turno'];
+                          $endereco_residencial = $_POST['endereco_residencial'];
+                          $telefone = $_POST['telefone'];
+                          $nome_pai = $_POST['nome_pai'];
+                          $profissao_pai = $_POST['profissao_pai'];
+                          $telefone_trab_pai = $_POST['telefone_trab_pai'];
+                          $celular_pai = $_POST['celular_pai'];
+                          $email_pai = $_POST['email_pai'];
+                          $nome_mae = $_POST['nome_mae'];
+                          $profissao_mae = $_POST['profissao_mae'];
+                          $telefone_trab_mae = $_POST['telefone_trab_mae'];
+                          $celular_mae = $_POST['celular_mae'];
+                          $email_mae = $_POST['email_mae'];
+                          $inicio_periodo_obs = $_POST['inicio_periodo_obs'];
+                          $devolutiva = $_POST['devolutiva'];
+                          $efetivado = $_POST['efetivado'];
+                          $desligado = $_POST['desligado'];
+                          $motivo = $_POST['motivo'];
 
-                              if($cadastrar == 0){
-                               $sql = mysqli_query($link, "INSERT INTO tb_inscricao SET codAluno='$codAluno', nomeAluno='$nomeAluno', foto='$data.jpg', dataNascimento='$data_nascimento', idade='$idade', anos='$anos', escolaOrigem='$escola_origem', telefoneEscola='$telefone_escola', cre='$cre', serie='$serie', turno='$turno', enderecoResidencial='$endereco_residencial', telefone='$telefone', nomePai='$nome_pai', profissaoPai='$profissao_pai', telefoneTrabPai='$telefone_trab_pai', celularPai='$celular_pai', emailPai='$email_pai', nomeMae='$nome_mae', profissaoMae='$profissao_mae', telefoneTrabMae='$telefone_trab_mae', celularMae='$celular_mae', emailMae='$email_mae', inicioPeriodoObs='$inicio_periodo_obs', devolutiva='$devolutiva', efetivado='$efetivado', desligado='$desligado', motivo='$motivo'")  or die (mysqli_error($link));
-                           }else{
-                               echo "Aluno(a) já cadastrado, aguarde o formulário ser recarregado.";
-                               echo '<meta http-equiv="refresh" content="10;url=inscricao.html">';
-                           }
+                          if($cadastrar == 0){
+                             $sql = mysqli_query($link, "INSERT INTO tb_inscricao SET codAluno='$codAluno', nomeAluno='$nomeAluno', foto='$data.jpg', dataNascimento='$data_nascimento', idade='$idade', anos='$anos', escolaOrigem='$escola_origem', telefoneEscola='$telefone_escola', cre='$cre', serie='$serie', turno='$turno', enderecoResidencial='$endereco_residencial', telefone='$telefone', nomePai='$nome_pai', profissaoPai='$profissao_pai', telefoneTrabPai='$telefone_trab_pai', celularPai='$celular_pai', emailPai='$email_pai', nomeMae='$nome_mae', profissaoMae='$profissao_mae', telefoneTrabMae='$telefone_trab_mae', celularMae='$celular_mae', emailMae='$email_mae', inicioPeriodoObs='$inicio_periodo_obs', devolutiva='$devolutiva', efetivado='$efetivado', desligado='$desligado', motivo='$motivo'")  or die (mysqli_error($link));
+                         }else{
+                             echo "Aluno(a) já cadastrado, aguarde o formulário ser recarregado.";
+                             echo '<meta http-equiv="refresh" content="10;url=inscricao.html">';
+                         }
 
-                           ?>                       </div>
-                       </div>
-                   </div>
-                   <!-- ============================================================== -->
-                   <!-- End PAge Content -->
-                   <!-- ============================================================== -->
-               </div>
-               <!-- ============================================================== -->
-               <!-- End Container fluid  -->
-               <!-- ============================================================== -->
-               <!-- ============================================================== -->
-               <!-- footer -->
-               <!-- ============================================================== -->
-               <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
-               <!-- ============================================================== -->
-               <!-- End footer -->
-               <!-- ============================================================== -->
-           </div>
-           <!-- ============================================================== -->
-           <!-- End Page wrapper  -->
-           <!-- ============================================================== -->
-       </div>
-       <!-- ============================================================== -->
-       <!-- End Wrapper -->
-       <!-- ============================================================== -->
-       <!-- ============================================================== -->
-       <!-- All Jquery -->
-       <!-- ============================================================== -->
-       <script src="assets/plugins/jquery/jquery.min.js"></script>
-       <!-- Bootstrap tether Core JavaScript -->
-       <script src="assets/plugins/bootstrap/js/tether.min.js"></script>
-       <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-       <!-- slimscrollbar scrollbar JavaScript -->
-       <script src="js/jquery.slimscroll.js"></script>
-       <!--Wave Effects -->
-       <script src="js/waves.js"></script>
-       <!--Menu sidebar -->
-       <script src="js/sidebarmenu.js"></script>
-       <!--stickey kit -->
-       <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-       <!--Custom JavaScript -->
-       <script src="js/custom.min.js"></script>
-       <!-- ============================================================== -->
-       <!-- This page plugins -->
-       <!-- ============================================================== -->
-       <!-- chartist chart -->
-       <script src="assets/plugins/chartist-js/dist/chartist.min.js"></script>
-       <script src="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-       <!--c3 JavaScript -->
-       <script src="assets/plugins/d3/d3.min.js"></script>
-       <script src="assets/plugins/c3-master/c3.min.js"></script>
-       <!-- Chart JS -->
-       <script src="js/dashboard1.js"></script>
-   </body>
+                         ?>                       </div>
+                     </div>
+                 </div>
+                 <!-- ============================================================== -->
+                 <!-- End PAge Content -->
+                 <!-- ============================================================== -->
+             </div>
+             <!-- ============================================================== -->
+             <!-- End Container fluid  -->
+             <!-- ============================================================== -->
+             <!-- ============================================================== -->
+             <!-- footer -->
+             <!-- ============================================================== -->
+             <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
+             <!-- ============================================================== -->
+             <!-- End footer -->
+             <!-- ============================================================== -->
+         </div>
+         <!-- ============================================================== -->
+         <!-- End Page wrapper  -->
+         <!-- ============================================================== -->
+     </div>
+     <!-- ============================================================== -->
+     <!-- End Wrapper -->
+     <!-- ============================================================== -->
+     <!-- ============================================================== -->
+     <!-- All Jquery -->
+     <!-- ============================================================== -->
+     <script src="assets/plugins/jquery/jquery.min.js"></script>
+     <!-- Bootstrap tether Core JavaScript -->
+     <script src="assets/plugins/bootstrap/js/tether.min.js"></script>
+     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+     <!-- slimscrollbar scrollbar JavaScript -->
+     <script src="js/jquery.slimscroll.js"></script>
+     <!--Wave Effects -->
+     <script src="js/waves.js"></script>
+     <!--Menu sidebar -->
+     <script src="js/sidebarmenu.js"></script>
+     <!--stickey kit -->
+     <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+     <!--Custom JavaScript -->
+     <script src="js/custom.min.js"></script>
+     <!-- ============================================================== -->
+     <!-- This page plugins -->
+     <!-- ============================================================== -->
+     <!-- chartist chart -->
+     <script src="assets/plugins/chartist-js/dist/chartist.min.js"></script>
+     <script src="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+     <!--c3 JavaScript -->
+     <script src="assets/plugins/d3/d3.min.js"></script>
+     <script src="assets/plugins/c3-master/c3.min.js"></script>
+     <!-- Chart JS -->
+     <script src="js/dashboard1.js"></script>
+ </body>
 
-   </html>
+ </html>

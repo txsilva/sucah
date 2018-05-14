@@ -182,73 +182,73 @@
                                                     <!-- Message -->
                                                     <h4 class="card-subtitle text-black"><span class="mdi mdi-transfer"></span> Preencha as informações abaixo e depois acione o botão "Cadastrar S. Recurso".  </h4>
                                                     <form action="verifica_escola.php" name="inscricao" method="post" enctype="multipart/form-data">
-                                                       <h3>1. Informações do(a) Professor(a)</h3>
-                                                       <hr>
-                                                       Sala de Recurso em Atende: <br><select style="width:50%" name="nomeEscola">
-                                                       <option>Selecionar</option>
-                                                       <?php 
-                                                       $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
-                                                       while ($linha = mysqli_fetch_array($select)) {
-                                                           echo "<option>";
-                                                           echo $linha['nomeEscola'];
-                                                           echo "</option>";
-                                                       }
-                                                       ?>
-                                                   </select><span class="mdi mdi-account-key"></span>
-                                                   <br>	
-                                                   Nome do(a) Professor(a): <br><input type="text" style="width:96%;" name="nomeProfessor" placeholder=" Digite o nome do(a) Professor(a)."><span class="mdi mdi-rename-box"></span><br><br>
-                                                   Foto Representativa: <br><table border="1" width="50%"><tr><td><input type="file" style="width:100%" name="foto"><span class="mdi mdi-file-import"></span></td></tr></table><br>
-                                                   Especialidade: <br><input type="text" style="width:96%;" name="especialidade" placeholder=" Digite o nome do(a) Professor(a)."><span class="mdi mdi-rename-box"></span><br>
-                                                   Senha: <br><input type="text" style="width:96%;" name="senha" placeholder=" Digite o nome do(a) Professor(a)."><span class="mdi mdi-rename-box"></span><br>
-                                                   Privilégio: <br><input type="text" style="width:96%;" name="privilegio" placeholder=" Digite o nome completo do estudante."><span class="mdi mdi-map-marker-radius"></span><br>
-                                                   Matrícula: <br><input type="text" style="width:96%" name="matriculaProf" placeholder="Informe da Sala de Recurso."><span class="mdi mdi-phone"></span><br>
-                                                   Formação: <br><input type="text" style="width:96%;" name="formacao" placeholder=" A latitude será retornada pela API do Google Maps."><br>
-                                                   Área: <br><input type="text" style="width:96%;" name="area" placeholder=" A latitude será retornada pela API do Google Maps."><br>
-                                                   Grau de Formação: <br><input type="text" style="width:96%;" name="grauEstudo" placeholder=" Digite o nome completo do estudante."><span class="mdi mdi-comment-text-outline"></span><br>
-                                                   Data de Admissão: <br><input type="text" style="width:96%;" name="dataAdmissao" placeholder=" A latitude será retornada pela API do Google Maps."><br>
-                                                   <hr>
-                                                   <input type="submit" value="Cadastrar S. Recurso" class="btn btn-warning" onclick="cadastrar()">
-                                                   <script type="text/javascript">
-                                                       function cadastrar(){
-                                                          alert("Deseja cadastrar a Sala de Recurso?");
-                                                          document.getElementById("demo").innerHTML = "A sala de recurso será cadastrada";
-                                                      }
-                                                  </script>
-                                                  <input type="Reset" value="Limpar Tudo" class="btn btn-danger" onclick="limpar()">
-                                                  <script type="text/javascript">
-                                                   function limpar(){
-                                                      alert("Deseja limpar o formulário");
-                                                      document.getElementById("demo").innerHTML = "As informações foram dos campos foram limpas";
+                                                     <h3>1. Informações do(a) Professor(a)</h3>
+                                                     <hr>
+                                                     Sala de Recurso em Atende: <br><select style="width:50%" name="nomeEscola">
+                                                     <option>Selecionar</option>
+                                                     <?php 
+                                                     $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
+                                                     while ($linha = mysqli_fetch_array($select)) {
+                                                         echo "<option>";
+                                                         echo $linha['nomeEscola'];
+                                                         echo "</option>";
+                                                     }
+                                                     ?>
+                                                 </select><span class="mdi mdi-account-key"></span>
+                                                 <br>	
+                                                 Nome do(a) Professor(a): <br><input type="text" style="width:96%;" name="nomeProfessor" placeholder=" Digite o nome do(a) Professor(a)."><span class="mdi mdi-rename-box"></span><br><br>
+                                                 Foto Representativa: <br><table border="1" width="50%"><tr><td><input type="file" style="width:100%" name="foto"><span class="mdi mdi-file-import"></span></td></tr></table><br>
+                                                 Especialidade: <br><input type="text" style="width:96%;" name="especialidade" placeholder=" Digite o nome do(a) Professor(a)."><span class="mdi mdi-rename-box"></span><br>
+                                                 Senha: <br><input type="text" style="width:96%;" name="senha" placeholder=" Digite o nome do(a) Professor(a)."><span class="mdi mdi-rename-box"></span><br>
+                                                 Privilégio: <br><input type="text" style="width:96%;" name="privilegio" placeholder=" Digite o nome completo do estudante."><span class="mdi mdi-map-marker-radius"></span><br>
+                                                 Matrícula: <br><input type="text" style="width:96%" name="matriculaProf" placeholder="Informe da Sala de Recurso."><span class="mdi mdi-phone"></span><br>
+                                                 Formação: <br><input type="text" style="width:96%;" name="formacao" placeholder=" A latitude será retornada pela API do Google Maps."><br>
+                                                 Área: <br><input type="text" style="width:96%;" name="area" placeholder=" A latitude será retornada pela API do Google Maps."><br>
+                                                 Grau de Formação: <br><input type="text" style="width:96%;" name="grauEstudo" placeholder=" Digite o nome completo do estudante."><span class="mdi mdi-comment-text-outline"></span><br>
+                                                 Data de Admissão: <br><input type="text" style="width:96%;" name="dataAdmissao" placeholder=" A latitude será retornada pela API do Google Maps."><br>
+                                                 <hr>
+                                                 <input type="submit" value="Cadastrar S. Recurso" class="btn btn-warning" onclick="cadastrar()">
+                                                 <script type="text/javascript">
+                                                     function cadastrar(){
+                                                      alert("Deseja cadastrar a Sala de Recurso?");
+                                                      document.getElementById("demo").innerHTML = "A sala de recurso será cadastrada";
                                                   }
                                               </script>
-                                              <p id="demo"></p>
-                                          </form>
-                                      </div>
+                                              <input type="Reset" value="Limpar Tudo" class="btn btn-danger" onclick="limpar()">
+                                              <script type="text/javascript">
+                                                 function limpar(){
+                                                  alert("Deseja limpar o formulário");
+                                                  document.getElementById("demo").innerHTML = "As informações foram dos campos foram limpas";
+                                              }
+                                          </script>
+                                          <p id="demo"></p>
+                                      </form>
                                   </div>
                               </div>
                           </div>
                       </div>
-                      
                   </div>
                   
-                  
-              </form>                        </div>
-          </div>
+              </div>
+              
+              
+          </form>                        </div>
       </div>
-      <!-- ============================================================== -->
-      <!-- End PAge Content -->
-      <!-- ============================================================== -->
   </div>
   <!-- ============================================================== -->
-  <!-- End Container fluid  -->
+  <!-- End PAge Content -->
   <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- footer -->
-  <!-- ============================================================== -->
-  <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
-  <!-- ============================================================== -->
-  <!-- End footer -->
-  <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+<footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
 </div>
 <!-- ============================================================== -->
 <!-- End Page wrapper  -->

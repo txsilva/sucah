@@ -45,8 +45,8 @@
     $codinscricao = $_GET['codinscricao'];
 
 			//Conexão com o banco de dados
-    require 'config.php';
-    require 'funcoes.php';
+    require '../../config.php';
+    require '../../funcoes.php';
     $link = DBConnect();
 
     $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
@@ -207,137 +207,137 @@
                                                     $count_professor = 0;
                                                     while ($linha = mysqli_fetch_array($select)) {
                                                         if($linha['codinscricao'] == $codinscricao){
-                                                           $matricula = $linha['codAluno'];
-                                                           $_SESSION['matriculaAluno'] = $matricula;
-                                                           $nome = $linha['nomeAluno'];
-                                                           $foto = $linha['foto'];
-                                                           $nascimento = $linha['dataNascimento'];
-                                                           $sexo = $linha['sexo'];
-                                                           $idade = $linha['idade'];
-                                                           $atual = $linha['atual'];
-                                                           $anos = $linha['anos'];
-                                                           $escolaorigem = $linha['escolaOrigem'];
-                                                           $telefoneescola = $linha['telefoneEscola'];
-                                                           $cre = $linha['cre'];
-                                                           
-                                                           $count_professor ++;
-                                                       }
-                                                   }
-                                                   ?>
+                                                         $matricula = $linha['codAluno'];
+                                                         $_SESSION['matriculaAluno'] = $matricula;
+                                                         $nome = $linha['nomeAluno'];
+                                                         $foto = $linha['foto'];
+                                                         $nascimento = $linha['dataNascimento'];
+                                                         $sexo = $linha['sexo'];
+                                                         $idade = $linha['idade'];
+                                                         $atual = $linha['atual'];
+                                                         $anos = $linha['anos'];
+                                                         $escolaorigem = $linha['escolaOrigem'];
+                                                         $telefoneescola = $linha['telefoneEscola'];
+                                                         $cre = $linha['cre'];
+                                                         
+                                                         $count_professor ++;
+                                                     }
+                                                 }
+                                                 ?>
 
 
-                                                   <form action="atualiza_inscricao.php" method="post" enctype="multipart/form-data">
-                                                       <h3>1. Informações do Estudante</h3>
-                                                       Código do Estudante: <br><input type="text" style="width:100%;" name="cod_aluno" placeholder="Nenhuma informação existente." value="<?php echo $matricula; ?>"><br>
-                                                       Nome completo: <br><input type="text" style="width:100%;" name="nomeAluno" placeholder="Nenhuma informação existente." value="<?php echo $nome; ?>"><br>
-                                                       <?php if($foto == "não"){ echo 'Foto: <br><input type="file" style="width:100%" name="foto" value="Oi">';}else{ echo '<br><div class="col-lg-3 col-md-6 m-b-20"><img src="/sucah/assets/images/aluno/'.$foto.'" class="img-responsive radius"></div>'; } ?><br>
-                                                           Data de nascimento: <br><?php if ($nascimento != null){ echo '<input type="text" style="width:50%"  name="data_nascimento" placeholder="     /   /   "  value="' .$nascimento.' ">';}else{ echo '<select style="width:30%"  name="data_nascimento">
-                                                           <option>Dia</option>
-                                                           <option>01</option>
-                                                           <option>02</option>
-                                                           <option>03</option>
-                                                           <option>04</option>
-                                                           <option>05</option>
-                                                           <option>06</option>
-                                                           <option>07</option>
-                                                           <option>08</option>
-                                                           <option>09</option>
-                                                           <option>10</option>
-                                                           <option>11</option>
-                                                           <option>12</option>
-                                                           <option>13</option>
-                                                           <option>14</option>
-                                                           <option>15</option>
-                                                           <option>16</option>
-                                                           <option>17</option>
-                                                           <option>18</option>
-                                                           <option>19</option>
-                                                           <option>20</option>
-                                                           <option>21</option>
-                                                           <option>22</option>
-                                                           <option>23</option>
-                                                           <option>24</option>
-                                                           <option>25</option>
-                                                           <option>26</option>
-                                                           <option>27</option>
-                                                           <option>28</option>
-                                                           <option>29</option>
-                                                           <option>30</option>
-                                                           <option>31</option>
-                                                       </select><span class="mdi mdi-calendar-blank"></span>
-                                                       <select style="width:30%"  name="data_nascimento">
-                                                           <option>Mês</option>
-                                                           <option>01</option>
-                                                           <option>02</option>
-                                                           <option>03</option>
-                                                           <option>04</option>
-                                                           <option>05</option>
-                                                           <option>06</option>
-                                                           <option>07</option>
-                                                           <option>08</option>
-                                                           <option>09</option>
-                                                           <option>10</option>
-                                                           <option>11</option>
-                                                           <option>12</option>
-                                                       </select><span class="mdi mdi-calendar"></span>
-                                                       <select style="width:30%"  name="data_nascimento">
-                                                           <option>Ano</option>
-                                                           <option>2018</option>
-                                                           <option>2017</option>
-                                                           <option>2016</option>
-                                                           <option>2015</option>
-                                                           <option>2014</option>
-                                                           <option>2013</option>
-                                                           <option>2012</option>
-                                                           <option>2011</option>
-                                                           <option>2010</option>
-                                                           <option>2009</option>
-                                                           <option>2008</option>
-                                                           <option>2007</option>
-                                                           <option>2006</option>
-                                                           <option>2005</option>
-                                                           <option>2004</option>
-                                                           <option>2003</option>
-                                                           <option>2002</option>
-                                                           <option>2001</option>
-                                                           <option>2000</option>
-                                                           <option>1999</option>
-                                                           <option>1998</option>
-                                                           <option>1997</option>
-                                                           <option>1996</option>
-                                                           <option>1995</option>
-                                                           <option>1994</option>
-                                                           <option>1993</option>
-                                                           <option>1992</option>
-                                                           <option>1991</option>
-                                                           <option>1990</option>
-                                                           <option>1989</option>
-                                                           <option>1988</option>
-                                                           <option>1987</option>
-                                                       </select>';}?><span class="mdi mdi-calendar-multiple"></span><br>
-                                                       Sexo: <br>
-                                                       <select style="width:50%" name="sexo">
-                                                         <?php
-                                                         if($sexo == 'Feminino'){
-                                                           echo '<option>Escolher</option>
-                                                           <option selected>Feminino</option>
-                                                           <option>Masculino</option>';
-                                                       }if($sexo == 'Masculino'){
-                                                           echo '<option>Escolher</option>
-                                                           <option>Feminino</option>
-                                                           <option selected>Masculino</option>';
-                                                       }else{
-                                                           echo '<option>Escolher</option>
-                                                           <option>Masculino</option>
-                                                           <option>Feminino</option>';
-                                                       }
-                                                       ?>
-                                                   </select><span class="mdi mdi-face"></span><br>
-                                                   <input type="text" style="width:100%" name="idade" placeholder="Nenhuma informação existente." value="<?php echo $atual; ?>" hidden><br><hr>
-                                                   <h3>2. Informações da escolarização</h3>
-                                                   Escola: <br><?php if($escolaorigem != null){echo '<input type="text" style="width:100%" name="escola_origem" placeholder="Nenhuma informação existente." value="' .$escolaorigem. '">';}else{echo '<select style="width:50%" name="escola_origem"><option>Selecionar</option>';
-                                                   $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
-                                                   while ($linha = mysqli_fetch_array($select)) {
+                                                 <form action="atualiza_inscricao.php" method="post" enctype="multipart/form-data">
+                                                     <h3>1. Informações do Estudante</h3>
+                                                     Código do Estudante: <br><input type="text" style="width:100%;" name="cod_aluno" placeholder="Nenhuma informação existente." value="<?php echo $matricula; ?>"><br>
+                                                     Nome completo: <br><input type="text" style="width:100%;" name="nomeAluno" placeholder="Nenhuma informação existente." value="<?php echo $nome; ?>"><br>
+                                                     <?php if($foto == "não"){ echo 'Foto: <br><input type="file" style="width:100%" name="foto" value="Oi">';}else{ echo '<br><div class="col-lg-3 col-md-6 m-b-20"><img src="/sucah/assets/images/aluno/'.$foto.'" class="img-responsive radius"></div>'; } ?><br>
+                                                         Data de nascimento: <br><?php if ($nascimento != null){ echo '<input type="text" style="width:50%"  name="data_nascimento" placeholder="     /   /   "  value="' .$nascimento.' ">';}else{ echo '<select style="width:30%"  name="data_nascimento">
+                                                         <option>Dia</option>
+                                                         <option>01</option>
+                                                         <option>02</option>
+                                                         <option>03</option>
+                                                         <option>04</option>
+                                                         <option>05</option>
+                                                         <option>06</option>
+                                                         <option>07</option>
+                                                         <option>08</option>
+                                                         <option>09</option>
+                                                         <option>10</option>
+                                                         <option>11</option>
+                                                         <option>12</option>
+                                                         <option>13</option>
+                                                         <option>14</option>
+                                                         <option>15</option>
+                                                         <option>16</option>
+                                                         <option>17</option>
+                                                         <option>18</option>
+                                                         <option>19</option>
+                                                         <option>20</option>
+                                                         <option>21</option>
+                                                         <option>22</option>
+                                                         <option>23</option>
+                                                         <option>24</option>
+                                                         <option>25</option>
+                                                         <option>26</option>
+                                                         <option>27</option>
+                                                         <option>28</option>
+                                                         <option>29</option>
+                                                         <option>30</option>
+                                                         <option>31</option>
+                                                     </select><span class="mdi mdi-calendar-blank"></span>
+                                                     <select style="width:30%"  name="data_nascimento">
+                                                         <option>Mês</option>
+                                                         <option>01</option>
+                                                         <option>02</option>
+                                                         <option>03</option>
+                                                         <option>04</option>
+                                                         <option>05</option>
+                                                         <option>06</option>
+                                                         <option>07</option>
+                                                         <option>08</option>
+                                                         <option>09</option>
+                                                         <option>10</option>
+                                                         <option>11</option>
+                                                         <option>12</option>
+                                                     </select><span class="mdi mdi-calendar"></span>
+                                                     <select style="width:30%"  name="data_nascimento">
+                                                         <option>Ano</option>
+                                                         <option>2018</option>
+                                                         <option>2017</option>
+                                                         <option>2016</option>
+                                                         <option>2015</option>
+                                                         <option>2014</option>
+                                                         <option>2013</option>
+                                                         <option>2012</option>
+                                                         <option>2011</option>
+                                                         <option>2010</option>
+                                                         <option>2009</option>
+                                                         <option>2008</option>
+                                                         <option>2007</option>
+                                                         <option>2006</option>
+                                                         <option>2005</option>
+                                                         <option>2004</option>
+                                                         <option>2003</option>
+                                                         <option>2002</option>
+                                                         <option>2001</option>
+                                                         <option>2000</option>
+                                                         <option>1999</option>
+                                                         <option>1998</option>
+                                                         <option>1997</option>
+                                                         <option>1996</option>
+                                                         <option>1995</option>
+                                                         <option>1994</option>
+                                                         <option>1993</option>
+                                                         <option>1992</option>
+                                                         <option>1991</option>
+                                                         <option>1990</option>
+                                                         <option>1989</option>
+                                                         <option>1988</option>
+                                                         <option>1987</option>
+                                                     </select>';}?><span class="mdi mdi-calendar-multiple"></span><br>
+                                                     Sexo: <br>
+                                                     <select style="width:50%" name="sexo">
+                                                       <?php
+                                                       if($sexo == 'Feminino'){
+                                                         echo '<option>Escolher</option>
+                                                         <option selected>Feminino</option>
+                                                         <option>Masculino</option>';
+                                                     }if($sexo == 'Masculino'){
+                                                         echo '<option>Escolher</option>
+                                                         <option>Feminino</option>
+                                                         <option selected>Masculino</option>';
+                                                     }else{
+                                                         echo '<option>Escolher</option>
+                                                         <option>Masculino</option>
+                                                         <option>Feminino</option>';
+                                                     }
+                                                     ?>
+                                                 </select><span class="mdi mdi-face"></span><br>
+                                                 <input type="text" style="width:100%" name="idade" placeholder="Nenhuma informação existente." value="<?php echo $atual; ?>" hidden><br><hr>
+                                                 <h3>2. Informações da escolarização</h3>
+                                                 Escola: <br><?php if($escolaorigem != null){echo '<input type="text" style="width:100%" name="escola_origem" placeholder="Nenhuma informação existente." value="' .$escolaorigem. '">';}else{echo '<select style="width:50%" name="escola_origem"><option>Selecionar</option>';
+                                                 $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
+                                                 while ($linha = mysqli_fetch_array($select)) {
                                                     echo "<option>";
                                                     echo $linha['nomeEscola'];
                                                     echo "</option>";
@@ -348,53 +348,53 @@
                                         CRE: <br><input type="text" style="width:100%" name="cre" placeholder="Nenhuma informação existente." value="<?php echo $cre; ?>"><br><br>
                                         Escolaridade:<br>
                                         <select style="width:50%" name="serie">
-                                         <option>Escolher</option>
-                                         <option>Infantil</option>
-                                         <option>Fundamental</option>
-                                         <option>Ensino Médio</option>
-                                     </select><br>
-                                     Turno:<br> <select style="width:50%" name="turno">
-                                     <option>Matutino</option>
-                                     <option>Vespertino</option>
-                                 </select><br><br><hr>
-                                 <h3>3. Informações dos responsáveis</h3>
-                                 Endereço residencial: <br><input type="text" style="width:100%" name="endereco_residencial" placeholder="Nenhuma informação existente."><br>
-                                 Telefone: <br><input type="text" style="width:100%" name="telefone" placeholder="Nenhuma informação existente."><br><br>
-                                 <h5>Nome do pai:</h5><input type="text" style="width:100%" name="nome_pai" placeholder="Nenhuma informação existente."><br>
-                                 Profissão do pai: <br><input type="text" style="width:100%" name="profissao_pai" placeholder="Nenhuma informação existente."><br>
-                                 Telefone do trabalho: <br><input type="text" style="width:100%" name="telefone_trab_pai" placeholder="Nenhuma informação existente."><br>
-                                 Celular do pai: <br><input type="text" style="width:100%" name="celular_pai" placeholder="Nenhuma informação existente."><br>
-                                 Email do pai: <br><input type="text" style="width:100%" name="email_pai" placeholder="Nenhuma informação existente."><br><br>
-                                 <h5>Nome da mãe:</h5><input type="text" style="width:100%" name="nome_mae" placeholder="Nenhuma informação existente."><br>
-                                 Profissão da mãe: <br><input type="text" style="width:100%" name="profissao_mae" placeholder="Nenhuma informação existente."><br>
-                                 Telefone do trabalho: <br><input type="text" style="width:100%" name="telefone_trab_mae" placeholder="Nenhuma informação existente."><br>
-                                 Celular da mãe: <br><input type="text" style="width:100%" name="celular_mae" placeholder="Nenhuma informação existente."><br>
-                                 Email da mãe: <br><input type="text" style="width:100%" name="email_mae" placeholder="Nenhuma informação existente."><br><hr>
-                                 <h3>4. Observação do(a) itinerante</h3>
-                                 Área indicada: <br>
-                                 <select style="width:120px" name="area_indicada">
-                                  <option>Escolher</option>
-                                  <option>Acadêmico</option>
-                                  <option>Talento</option>
-                              </select><br>
-                              Número da ficha: <br><input type="text" style="width:100%" name="devolutiva" placeholder="Nenhuma informação existente."><br>
-                              Início do período de observação: <br><input type="text" style="width:100%" name="inicio_periodo_obs" placeholder="Nenhuma informação existente." value="Assim que coloca para atualizar"><br>
-                              Devolutiva: <br><input type="text" style="width:100%" name="devolutiva" placeholder=""><br>
-                              Efetivado: <br><input type="text" style="width:100%" name="efetivado" placeholder=""><br>
-                              Desligado: <br><input type="text" style="width:100%" name="desligado" placeholder=""><br>
-                              Motivo: <br><input type="text" style="width:100%" name="motivo" placeholder=""><br><br>
-                              <input type="submit" value="Atualizar Cadastro">  <input type="Reset" value="Resetar Preenchimento">
+                                           <option>Escolher</option>
+                                           <option>Infantil</option>
+                                           <option>Fundamental</option>
+                                           <option>Ensino Médio</option>
+                                       </select><br>
+                                       Turno:<br> <select style="width:50%" name="turno">
+                                       <option>Matutino</option>
+                                       <option>Vespertino</option>
+                                   </select><br><br><hr>
+                                   <h3>3. Informações dos responsáveis</h3>
+                                   Endereço residencial: <br><input type="text" style="width:100%" name="endereco_residencial" placeholder="Nenhuma informação existente."><br>
+                                   Telefone: <br><input type="text" style="width:100%" name="telefone" placeholder="Nenhuma informação existente."><br><br>
+                                   <h5>Nome do pai:</h5><input type="text" style="width:100%" name="nome_pai" placeholder="Nenhuma informação existente."><br>
+                                   Profissão do pai: <br><input type="text" style="width:100%" name="profissao_pai" placeholder="Nenhuma informação existente."><br>
+                                   Telefone do trabalho: <br><input type="text" style="width:100%" name="telefone_trab_pai" placeholder="Nenhuma informação existente."><br>
+                                   Celular do pai: <br><input type="text" style="width:100%" name="celular_pai" placeholder="Nenhuma informação existente."><br>
+                                   Email do pai: <br><input type="text" style="width:100%" name="email_pai" placeholder="Nenhuma informação existente."><br><br>
+                                   <h5>Nome da mãe:</h5><input type="text" style="width:100%" name="nome_mae" placeholder="Nenhuma informação existente."><br>
+                                   Profissão da mãe: <br><input type="text" style="width:100%" name="profissao_mae" placeholder="Nenhuma informação existente."><br>
+                                   Telefone do trabalho: <br><input type="text" style="width:100%" name="telefone_trab_mae" placeholder="Nenhuma informação existente."><br>
+                                   Celular da mãe: <br><input type="text" style="width:100%" name="celular_mae" placeholder="Nenhuma informação existente."><br>
+                                   Email da mãe: <br><input type="text" style="width:100%" name="email_mae" placeholder="Nenhuma informação existente."><br><hr>
+                                   <h3>4. Observação do(a) itinerante</h3>
+                                   Área indicada: <br>
+                                   <select style="width:120px" name="area_indicada">
+                                      <option>Escolher</option>
+                                      <option>Acadêmico</option>
+                                      <option>Talento</option>
+                                  </select><br>
+                                  Número da ficha: <br><input type="text" style="width:100%" name="devolutiva" placeholder="Nenhuma informação existente."><br>
+                                  Início do período de observação: <br><input type="text" style="width:100%" name="inicio_periodo_obs" placeholder="Nenhuma informação existente." value="Assim que coloca para atualizar"><br>
+                                  Devolutiva: <br><input type="text" style="width:100%" name="devolutiva" placeholder=""><br>
+                                  Efetivado: <br><input type="text" style="width:100%" name="efetivado" placeholder=""><br>
+                                  Desligado: <br><input type="text" style="width:100%" name="desligado" placeholder=""><br>
+                                  Motivo: <br><input type="text" style="width:100%" name="motivo" placeholder=""><br><br>
+                                  <input type="submit" value="Atualizar Cadastro">  <input type="Reset" value="Resetar Preenchimento">
+                              </div>
                           </div>
                       </div>
                   </div>
               </div>
+              
           </div>
           
-      </div>
-      
-      
-  </form>                        </div>
-</div>
+          
+      </form>                        </div>
+  </div>
 </div>
 <!-- ============================================================== -->
 <!-- End PAge Content -->

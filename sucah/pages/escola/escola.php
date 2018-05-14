@@ -43,8 +43,8 @@
     }
     
 			//Conexão com o banco de dados
-    require 'config.php';
-    require 'funcoes.php';
+    require '../../config.php';
+    require '../../funcoes.php';
     $link = DBConnect();
 
     $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
@@ -182,75 +182,75 @@
                                                     <!-- Message -->
                                                     <h4 class="card-subtitle text-black"><span class="mdi mdi-transfer"></span> Preencha as informações abaixo e depois acione o botão "Cadastrar S. Recurso".  </h4>
                                                     <form action="verifica_escola.php" name="inscricao" method="post" enctype="multipart/form-data">
-                                                       <h3>1. Informações do(a) Sala de Recurso</h3>
-                                                       <hr>
-                                                       Nome da Sala de Recurso: <br><input type="text" style="width:96%;" name="nomeEscola" placeholder=" Digite o nome da Sala de Recurso."><span class="mdi mdi-rename-box"></span><br><br>
-                                                       Foto Representativa: <br><table border="1" width="50%"><tr><td><input type="file" style="width:100%" name="foto"><span class="mdi mdi-file-import"></span></td></tr></table><br>
-                                                       CRE: <br><select style="width:50%"  name="cre">
-                                                       <option>Escolha CRE</option>
-                                                       <option>Asa Sul</option>
-                                                       <option>Asa Norte</option>
-                                                       <option>Cruzeiro</option>
-                                                       <option>Lago Norte</option>
-                                                       <option>Brazlândia</option>
-                                                       <option>Gama</option>
-                                                       <option>Ceilândia</option>
-                                                       <option>Guará</option>
-                                                       <option>Núcleo Bandeirante</option>
-                                                       <option>Santa Maria</option>
-                                                       <option>Samambaia</option>
-                                                       <option>São Sebastião</option>
-                                                       <option>Sobradinho</option>
-                                                       <option>Taguatinga</option>
-                                                   </select><span class="mdi mdi-google-pages"></span><br>
-                                                   Endereço: <br><input type="text" style="width:96%;" name="endereco" placeholder=" Digite o nome completo do estudante."><span class="mdi mdi-map-marker-radius"></span><br>
-                                                   Telefone: <br><input type="text" style="width:96%" name="telefone_sala" placeholder="Informe da Sala de Recurso."><span class="mdi mdi-phone"></span><br>
-                                                   <input type="text" style="width:96%;" name="latitude" placeholder=" A latitude será retornada pela API do Google Maps." hidden>
-                                                   <input type="text" style="width:96%;" name="longitude" placeholder=" A latitude será retornada pela API do Google Maps." hidden>
-                                                   Descrição: <br><textarea rows="5" cols="100" style="width:96%;" name="descricao" placeholder=" Digite o nome completo do estudante."></textarea><span class="mdi mdi-comment-text-outline"></span><br>
-                                                   <hr>
-                                                   <input type="submit" value="Cadastrar S. Recurso" class="btn btn-warning" onclick="cadastrar()">
-                                                   <script type="text/javascript">
-                                                       function cadastrar(){
-                                                          alert("Deseja cadastrar a Sala de Recurso?");
-                                                          document.getElementById("demo").innerHTML = "A sala de recurso será cadastrada";
-                                                      }
-                                                  </script>
-                                                  <input type="Reset" value="Limpar Tudo" class="btn btn-danger" onclick="limpar()">
-                                                  <script type="text/javascript">
-                                                   function limpar(){
-                                                      alert("Deseja limpar o formulário");
-                                                      document.getElementById("demo").innerHTML = "As informações foram dos campos foram limpas";
+                                                     <h3>1. Informações do(a) Sala de Recurso</h3>
+                                                     <hr>
+                                                     Nome da Sala de Recurso: <br><input type="text" style="width:96%;" name="nomeEscola" placeholder=" Digite o nome da Sala de Recurso."><span class="mdi mdi-rename-box"></span><br><br>
+                                                     Foto Representativa: <br><table border="1" width="50%"><tr><td><input type="file" style="width:100%" name="foto"><span class="mdi mdi-file-import"></span></td></tr></table><br>
+                                                     CRE: <br><select style="width:50%"  name="cre">
+                                                     <option>Escolha CRE</option>
+                                                     <option>Asa Sul</option>
+                                                     <option>Asa Norte</option>
+                                                     <option>Cruzeiro</option>
+                                                     <option>Lago Norte</option>
+                                                     <option>Brazlândia</option>
+                                                     <option>Gama</option>
+                                                     <option>Ceilândia</option>
+                                                     <option>Guará</option>
+                                                     <option>Núcleo Bandeirante</option>
+                                                     <option>Santa Maria</option>
+                                                     <option>Samambaia</option>
+                                                     <option>São Sebastião</option>
+                                                     <option>Sobradinho</option>
+                                                     <option>Taguatinga</option>
+                                                 </select><span class="mdi mdi-google-pages"></span><br>
+                                                 Endereço: <br><input type="text" style="width:96%;" name="endereco" placeholder=" Digite o nome completo do estudante."><span class="mdi mdi-map-marker-radius"></span><br>
+                                                 Telefone: <br><input type="text" style="width:96%" name="telefone_sala" placeholder="Informe da Sala de Recurso."><span class="mdi mdi-phone"></span><br>
+                                                 <input type="text" style="width:96%;" name="latitude" placeholder=" A latitude será retornada pela API do Google Maps." hidden>
+                                                 <input type="text" style="width:96%;" name="longitude" placeholder=" A latitude será retornada pela API do Google Maps." hidden>
+                                                 Descrição: <br><textarea rows="5" cols="100" style="width:96%;" name="descricao" placeholder=" Digite o nome completo do estudante."></textarea><span class="mdi mdi-comment-text-outline"></span><br>
+                                                 <hr>
+                                                 <input type="submit" value="Cadastrar S. Recurso" class="btn btn-warning" onclick="cadastrar()">
+                                                 <script type="text/javascript">
+                                                     function cadastrar(){
+                                                      alert("Deseja cadastrar a Sala de Recurso?");
+                                                      document.getElementById("demo").innerHTML = "A sala de recurso será cadastrada";
                                                   }
                                               </script>
-                                              <p id="demo"></p>
-                                          </form>
-                                      </div>
+                                              <input type="Reset" value="Limpar Tudo" class="btn btn-danger" onclick="limpar()">
+                                              <script type="text/javascript">
+                                                 function limpar(){
+                                                  alert("Deseja limpar o formulário");
+                                                  document.getElementById("demo").innerHTML = "As informações foram dos campos foram limpas";
+                                              }
+                                          </script>
+                                          <p id="demo"></p>
+                                      </form>
                                   </div>
                               </div>
                           </div>
                       </div>
-                      
                   </div>
                   
-                  
-              </form>                        </div>
-          </div>
+              </div>
+              
+              
+          </form>                        </div>
       </div>
-      <!-- ============================================================== -->
-      <!-- End PAge Content -->
-      <!-- ============================================================== -->
   </div>
   <!-- ============================================================== -->
-  <!-- End Container fluid  -->
+  <!-- End PAge Content -->
   <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- footer -->
-  <!-- ============================================================== -->
-  <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
-  <!-- ============================================================== -->
-  <!-- End footer -->
-  <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+<footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
 </div>
 <!-- ============================================================== -->
 <!-- End Page wrapper  -->
