@@ -28,129 +28,129 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <![endif]-->
 </head>
 <body>
-<?php
-require 'config.php';
-require 'funcoes.php';
+    <?php
+    require 'config.php';
+    require 'funcoes.php';
 
 //Start the session
-session_start();
+    session_start();
 
-$matricula = $_POST['matricula'];
+    $matricula = $_POST['matricula'];
 
 
-$senha = $_POST['senha'];
+    $senha = $_POST['senha'];
 
-$_SESSION['matricula'] = $matricula;
+    $_SESSION['matricula'] = $matricula;
 
-$acesso = 0;
+    $acesso = 0;
 
-$link = DBConnect();
-$select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
-while ($linha = mysqli_fetch_array($select)){
-	if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'sala_recurso')){
-		$acesso = 1;
-		$_SESSION['privilegio'] = $linha['privilegio'];
-		echo '<div class="card">
-                            <div class="card-block bg-primary">
-                                <h1 class="text-white card-title">Central do Usuário</h1>
-                                <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
-                            </div>
-                          <div class="card-block">
-                                <div class="message-box contact-box">
-                                    <div class="message-widget contact-widget">
-                                        <!-- Message -->
-							  <h1  class="mdi mdi-numeric-1-box-multiple-outline">Professor da Sala de Recurso</h1>
-<h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
-                            Você poderá acessar a página do seu centro de atendimento, realizar atendimentos e ver relatórios gerados sobre esse centro.
+    $link = DBConnect();
+    $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
+    while ($linha = mysqli_fetch_array($select)){
+       if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'sala_recurso')){
+          $acesso = 1;
+          $_SESSION['privilegio'] = $linha['privilegio'];
+          echo '<div class="card">
+          <div class="card-block bg-primary">
+            <h1 class="text-white card-title">Central do Usuário</h1>
+            <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
+        </div>
+        <div class="card-block">
+            <div class="message-box contact-box">
+                <div class="message-widget contact-widget">
+                    <!-- Message -->
+                    <h1  class="mdi mdi-numeric-1-box-multiple-outline">Professor da Sala de Recurso</h1>
+                    <h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
+                        Você poderá acessar a página do seu centro de atendimento, realizar atendimentos e ver relatórios gerados sobre esse centro.
 
-                            O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
-		<center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
-		<meta http-equiv="refresh" content="10;url=index_recurso.php">
-                                                </div>
-                                </div>
-                            </div>
-                        </div>';
-        }
+                        O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
+                        <center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
+                        <meta http-equiv="refresh" content="10;url=index_recurso.php">
+                    </div>
+                </div>
+            </div>
+        </div>';
+    }
 
-        if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'itinerante')){
-		$acesso =2;
-		$_SESSION['privilegio'] = $linha['privilegio'];
-		echo '<div class="card">
-                            <div class="card-block bg-primary">
-                                <h1 class="text-white card-title">Central do Usuário</h1>
-                                <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
-                            </div>
-                          <div class="card-block">
-                                <div class="message-box contact-box">
-                                    <div class="message-widget contact-widget">
-                                        <!-- Message -->
-							  <h1 class="mdi mdi-numeric-2-box-multiple-outline">Professor Itinerante</h1>
-<h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
-                            Você poderá acessar a página do seu centro de atendimento, inscrever alunos, realizar atendimentos e gerar relatórios sobre esse centro.
+    if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'itinerante')){
+      $acesso =2;
+      $_SESSION['privilegio'] = $linha['privilegio'];
+      echo '<div class="card">
+      <div class="card-block bg-primary">
+        <h1 class="text-white card-title">Central do Usuário</h1>
+        <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
+    </div>
+    <div class="card-block">
+        <div class="message-box contact-box">
+            <div class="message-widget contact-widget">
+                <!-- Message -->
+                <h1 class="mdi mdi-numeric-2-box-multiple-outline">Professor Itinerante</h1>
+                <h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
+                    Você poderá acessar a página do seu centro de atendimento, inscrever alunos, realizar atendimentos e gerar relatórios sobre esse centro.
 
-                            O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
-		<center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
-		<meta http-equiv="refresh" content="10;url=index_itinerante.php">
-                                                </div>
-                                </div>
-                            </div>
-                        </div>';
-        }
+                    O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
+                    <center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
+                    <meta http-equiv="refresh" content="10;url=index_itinerante.php">
+                </div>
+            </div>
+        </div>
+    </div>';
+}
 
-        if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'regional')){
-		$acesso =3;
-		$_SESSION['privilegio'] = $linha['privilegio'];
-		echo '<div class="card">
-                            <div class="card-block bg-primary">
-                                <h1 class="text-white card-title">Central do Usuário</h1>
-                                <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
-                            </div>
-                          <div class="card-block">
-                                <div class="message-box contact-box">
-                                    <div class="message-widget contact-widget">
-                                        <!-- Message -->
-							  <h1 class="mdi mdi-numeric-2-box-multiple-outline">Administrativo Uniube</h1>
-<h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
-                            Você poderá acessar a página da regional da SEEDF, gerar relatório de cada unidade, relatório geral e .
+if((($linha['matriculaProf'] == $matricula) && ($linha['senha'] == $senha)) && ($linha['privilegio'] == 'regional')){
+  $acesso =3;
+  $_SESSION['privilegio'] = $linha['privilegio'];
+  echo '<div class="card">
+  <div class="card-block bg-primary">
+    <h1 class="text-white card-title">Central do Usuário</h1>
+    <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
+</div>
+<div class="card-block">
+    <div class="message-box contact-box">
+        <div class="message-widget contact-widget">
+            <!-- Message -->
+            <h1 class="mdi mdi-numeric-2-box-multiple-outline">Administrativo Uniube</h1>
+            <h4>Sr.(a) '. $linha['nomeProfessor'] .'<br><br>
+                Você poderá acessar a página da regional da SEEDF, gerar relatório de cada unidade, relatório geral e .
 
-                            O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
-		<center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
-		<meta http-equiv="refresh" content="10;url=index_regional.php">
-                                                </div>
-                                </div>
-                            </div>
-                        </div>';
-        }
+                O sistema está sendo iniciando a sessão. Aguarde e em instantes tudo estará pronto.</h4>
+                <center><img src="assets/images/carregando.gif" width="100px" class="light-logo" alt="Carregando"/></center>
+                <meta http-equiv="refresh" content="10;url=index_regional.php">
+            </div>
+        </div>
+    </div>
+</div>';
+}
 
 }
 
 
 if($acesso == 0){
 	echo '<div class="card">
-                            <div class="card-block bg-primary">
-                                <h1 class="text-white card-title">Central do Usuário</h1>
-                                <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
-                            </div>
-                          <div class="card-block">
-                                <div class="message-box contact-box">
-                                    <div class="message-widget contact-widget">
-                                        <!-- Message -->
-							  <h1 class="mdi mdi-comment-alert-outline"></h1> <h4> Talvez possa estar havendo um engano, verifique o usuário e senha.</h4><br><br>
-		<meta http-equiv="refresh" content="10;url=login.html">
-                                                </div>
-                                </div>
-                            </div>
-                        </div>';
+    <div class="card-block bg-primary">
+        <h1 class="text-white card-title">Central do Usuário</h1>
+        <h5 class="card-subtitle text-white ">Verificação, ajustes e atualizações de conta.</h5>
+    </div>
+    <div class="card-block">
+        <div class="message-box contact-box">
+            <div class="message-widget contact-widget">
+                <!-- Message -->
+                <h1 class="mdi mdi-comment-alert-outline"></h1> <h4> Talvez possa estar havendo um engano, verifique o usuário e senha.</h4><br><br>
+                <meta http-equiv="refresh" content="10;url=login.html">
+            </div>
+        </div>
+    </div>
+</div>';
 
 }
 
 ?>
 
 <center>
-<footer class="text-center"> © 2018 SEDF GDF - UnB</footer>
+    <footer class="text-center"> © 2018 SEDF GDF - UnB</footer>
 </center>
 </body>
 </html>

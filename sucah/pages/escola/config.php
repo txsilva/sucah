@@ -1,11 +1,11 @@
 <?php
 
-	define('DB_HOSTNAME', 'localhost');
-	define('DB_USERNAME', 'root');
-	define('DB_PASSWORD', '');
-	define('DB_DATABASE', 'altas_habilidades');
-	define('DB_PREFIX', 'tb_');
-	define('DB_CHARSET','utf8mb4');
+define('DB_HOSTNAME', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'altas_habilidades');
+define('DB_PREFIX', 'tb_');
+define('DB_CHARSET','utf8mb4');
 
 
 //estabelece a conexão com o servidor de bd ('server', 'usuario', 'senha')

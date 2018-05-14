@@ -28,203 +28,203 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <![endif]-->
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-<?php
+    <?php
 			//Start the session
-			session_start();
+    session_start();
 			//Verifica se o usuário está logado ou não
-			if($_SESSION['matricula'] == NULL){
-				echo '<meta http-equiv="refresh" content="0;url=login.html">';
-			}else{
-				$login_matricula = $_SESSION['matricula'];
-			}
-			
+    if($_SESSION['matricula'] == NULL){
+        echo '<meta http-equiv="refresh" content="0;url=login.html">';
+    }else{
+        $login_matricula = $_SESSION['matricula'];
+    }
+    
 			//Conexão com o banco de dados
-                        require 'config.php';
-                        require 'funcoes.php';
-			$link = DBConnect();
+    require 'config.php';
+    require 'funcoes.php';
+    $link = DBConnect();
 
-			$select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
-			$count_professor = 0;
-                          while ($linha = mysqli_fetch_array($select)) {
-                            if($login_matricula == $linha['matriculaProf']){
-				$user = $linha['nomeProfessor'];
-				$_SESSION['user'] = $user;
-				$cod_escola = $linha['codEscola'];
-			     }
-                        }
-?>
+    $select = mysqli_query($link, "SELECT * FROM tb_professor") or die(mysqli_error($link));
+    $count_professor = 0;
+    while ($linha = mysqli_fetch_array($select)) {
+        if($login_matricula == $linha['matriculaProf']){
+            $user = $linha['nomeProfessor'];
+            $_SESSION['user'] = $user;
+            $cod_escola = $linha['codEscola'];
+        }
+    }
+    ?>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
+        </div>
         <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- Main wrapper - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                                        <a class="navbar-brand" href="/sucah/index.php" style="color:#ffffff;">
-                      
-                        <!-- Logo text --><span>
-                         
-                         <!-- Light Logo text -->
-                         <img src="/sucah/assets/images/logo1.png" class="light-logo" alt="Altas Habilidades"/>Altas Habilidades</span> </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav mr-auto mt-md-0">
-                        <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"><a class="srh-btn"><i class="ti-close"></i></a> </form>
-                        </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- Profile -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/sucah/assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" /><?php echo $user; ?></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <?php
-			require 'menu.php';
-		?>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-            <!-- Bottom points-->
-            <div class="sidebar-footer">
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
-            <!-- End Bottom points-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
+        <div id="main-wrapper">
             <!-- ============================================================== -->
-            <!-- Container fluid  -->
+            <!-- Topbar header - style you can find in pages.scss -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <div class="row page-titles">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Atendimentos realizados</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Atendimentos realizados</li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- column -->
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <h4 class="card-title"></h4>
-                                <div class="table-responsive">
-                                    <table class="table">
-					<thead>
-                                            <tr>
-                                                <th>Nome Aluno</th>
-                                                <th>Itinerante</th>
-                                                <th>Data Atendimento</th>
-                                                <th>Matricula Aluno</th>
-                                                <th>Ação</th>
-                                            </tr>
-                                        </thead>
-					<?php
-$select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
-			$count_professor = 0;
-                          while ($linha = mysqli_fetch_array($select)) {
-				if($linha['codEscola'] == $cod_escola){
-					$cre = $linha['cre'];
-				}
-                        }
-
-
-$select = mysqli_query($link, "SELECT * FROM tb_atendimento") or die(mysqli_error($link));
-			$count_professor = 0;
-                          while ($linha = mysqli_fetch_array($select)) {
-				if($linha['cre'] == $cre){
-					echo '<tbody><tr><td>'. $linha['nomeAluno'] .'</td>';
-					echo '<td>'. $linha['itinerante'] .'</td>';
-					echo '<td>'. $linha['dataAtendimento'] .'</td>';
-					echo '<td>'. $linha['matriculaAluno'] .'</td>';
-					echo '<td><a href="?"><button class="btn btn-warning" style="position:right; width:120px; height:2rem;"><b>Atualizar <i class="mdi mdi-ungroup"></i></b></button></a></td></tr>';
-				}
-                        }
-?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+            <header class="topbar">
+                <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/sucah/index.php" style="color:#ffffff;">
+                          
+                            <!-- Logo text --><span>
+                            
+                            <!-- Light Logo text -->
+                            <img src="/sucah/assets/images/logo1.png" class="light-logo" alt="Altas Habilidades"/>Altas Habilidades</span> </a>
                         </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
+                        <!-- ============================================================== -->
+                        <!-- End Logo -->
+                        <!-- ============================================================== -->
+                        <div class="navbar-collapse">
+                            <!-- ============================================================== -->
+                            <!-- toggle and nav items -->
+                            <!-- ============================================================== -->
+                            <ul class="navbar-nav mr-auto mt-md-0">
+                                <!-- This is  -->
+                                <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                                <!-- ============================================================== -->
+                                <!-- Search -->
+                                <!-- ============================================================== -->
+                                <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                                    <form class="app-search">
+                                        <input type="text" class="form-control" placeholder="Search & enter"><a class="srh-btn"><i class="ti-close"></i></a> </form>
+                                    </li>
+                                </ul>
+                                <!-- ============================================================== -->
+                                <!-- User profile and search -->
+                                <!-- ============================================================== -->
+                                <ul class="navbar-nav my-lg-0">
+                                    <!-- ============================================================== -->
+                                    <!-- Profile -->
+                                    <!-- ============================================================== -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/sucah/assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" /><?php echo $user; ?></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </header>
+                    <!-- ============================================================== -->
+                    <!-- End Topbar header -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+                    <!-- ============================================================== -->
+                    <aside class="left-sidebar">
+                        <!-- Sidebar scroll-->
+                        <div class="scroll-sidebar">
+                            <!-- Sidebar navigation-->
+                            <?php
+                            require 'menu.php';
+                            ?>
+                            <!-- End Sidebar navigation -->
+                        </div>
+                        <!-- End Sidebar scroll-->
+                        <!-- Bottom points-->
+                        <div class="sidebar-footer">
+                            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                            <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+                            <!-- End Bottom points-->
+                        </aside>
+                        <!-- ============================================================== -->
+                        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Page wrapper  -->
+                        <!-- ============================================================== -->
+                        <div class="page-wrapper">
+                            <!-- ============================================================== -->
+                            <!-- Container fluid  -->
+                            <!-- ============================================================== -->
+                            <div class="container-fluid">
+                                <!-- ============================================================== -->
+                                <!-- Bread crumb and right sidebar toggle -->
+                                <!-- ============================================================== -->
+                                <div class="row page-titles">
+                                    <div class="col-md-5 col-8 align-self-center">
+                                        <h3 class="text-themecolor m-b-0 m-t-0">Atendimentos realizados</h3>
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                            <li class="breadcrumb-item active">Atendimentos realizados</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- End Bread crumb and right sidebar toggle -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- Start Page Content -->
+                                <!-- ============================================================== -->
+                                <div class="row">
+                                    <!-- column -->
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-block">
+                                                <h4 class="card-title"></h4>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                       <thead>
+                                                        <tr>
+                                                            <th>Nome Aluno</th>
+                                                            <th>Itinerante</th>
+                                                            <th>Data Atendimento</th>
+                                                            <th>Matricula Aluno</th>
+                                                            <th>Ação</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <?php
+                                                    $select = mysqli_query($link, "SELECT * FROM tb_escola") or die(mysqli_error($link));
+                                                    $count_professor = 0;
+                                                    while ($linha = mysqli_fetch_array($select)) {
+                                                        if($linha['codEscola'] == $cod_escola){
+                                                           $cre = $linha['cre'];
+                                                       }
+                                                   }
+
+
+                                                   $select = mysqli_query($link, "SELECT * FROM tb_atendimento") or die(mysqli_error($link));
+                                                   $count_professor = 0;
+                                                   while ($linha = mysqli_fetch_array($select)) {
+                                                    if($linha['cre'] == $cre){
+                                                       echo '<tbody><tr><td>'. $linha['nomeAluno'] .'</td>';
+                                                       echo '<td>'. $linha['itinerante'] .'</td>';
+                                                       echo '<td>'. $linha['dataAtendimento'] .'</td>';
+                                                       echo '<td>'. $linha['matriculaAluno'] .'</td>';
+                                                       echo '<td><a href="?"><button class="btn btn-warning" style="position:right; width:120px; height:2rem;"><b>Atualizar <i class="mdi mdi-ungroup"></i></b></button></a></td></tr>';
+                                                   }
+                                               }
+                                               ?>
+                                           </tbody>
+                                       </table>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <!-- ============================================================== -->
+                   <!-- End PAge Content -->
+                   <!-- ============================================================== -->
+               </div>
+               <!-- ============================================================== -->
+               <!-- End Container fluid  -->
+               <!-- ============================================================== -->
+               <!-- ============================================================== -->
+               <!-- footer -->
+               <!-- ============================================================== -->
+               <footer class="footer">
                 © 2017 Material Pro Admin by wrappixel.com
             </footer>
             <!-- ============================================================== -->
